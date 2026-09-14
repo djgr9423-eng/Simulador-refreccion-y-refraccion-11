@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simuladores de Óptica | Grado 11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="badge">FÍSICA · GRADO 11°</div>
+    <h1>Simuladores de Óptica</h1>
+    <p>Explora la <strong>reflexión</strong> y la <strong>refracción</strong> de la luz de forma interactiva.</p>
+  </header>
+
+  <main>
+    <nav class="tabs">
+      <button class="tab active" data-target="fiber">📡 Fibra óptica</button>
+      <button class="tab" data-target="refraction">🔬 Refracción</button>
+    </nav>
+
+    <section id="fiber" class="panel active">
+      <div class="intro">
+        <h2>Reflexión interna total · Fibra óptica</h2>
+        <p>Modifica los índices de refracción y el ángulo para observar cómo la luz permanece guiada dentro del núcleo.</p>
+      </div>
+      <div class="controls">
+        <label>Índice del núcleo <span id="ncVal">1.50</span><input id="nc" type="range" min="1.30" max="1.80" step="0.01" value="1.50"></label>
+        <label>Índice del revestimiento <span id="nlVal">1.40</span><input id="nl" type="range" min="1.20" max="1.49" step="0.01" value="1.40"></label>
+        <label>Ángulo inicial <span id="aVal">60°</span><input id="a" type="range" min="5" max="85" step="1" value="60"></label>
+      </div>
+      <div class="stats">
+        <div><small>Ángulo crítico</small><strong id="critical">69.0°</strong></div>
+        <div><small>Resultado</small><strong id="fiberStatus">Reflexión interna total</strong></div>
+      </div>
+      <canvas id="fc"></canvas>
+      <div class="explanation"><strong>¿Qué ocurre?</strong> Cuando el ángulo de incidencia supera el ángulo crítico, la luz se refleja dentro del núcleo y puede viajar grandes distancias. Este principio permite transmitir información por fibra óptica.</div>
+    </section>
+
+    <section id="refraction" class="panel">
+      <div class="intro">
+        <h2>Refracción · Ley de Snell</h2>
+        <p>Observa cómo cambia la dirección de un rayo al pasar de un medio a otro.</p>
+      </div>
+      <div class="controls two">
+        <label>Medio 1<select id="m1"><option value="1">Aire (n=1.00)</option><option value="1.33">Agua (n=1.33)</option><option value="1.50">Vidrio (n=1.50)</option><option value="2.42">Diamante (n=2.42)</option></select></label>
+        <label>Medio 2<select id="m2"><option value="1.50">Vidrio (n=1.50)</option><option value="1">Aire (n=1.00)</option><option value="1.33">Agua (n=1.33)</option><option value="2.42">Diamante (n=2.42)</option></select></label>
+        <label>Ángulo de incidencia <span id="raVal">40°</span><input id="ra" type="range" min="0" max="89" step="1" value="40"></label>
+      </div>
+      <div class="formula">n₁ · sen(θ₁) = n₂ · sen(θ₂)</div>
+      <div class="stats">
+        <div><small>Ángulo incidente</small><strong id="incAngle">40°</strong></div>
+        <div><small>Ángulo refractado</small><strong id="outAngle">25.4°</strong></div>
+        <div><small>Fenómeno</small><strong id="refStatus">Refracción</strong></div>
+      </div>
+      <canvas id="rc"></canvas>
+      <div class="explanation"><strong>Aplicaciones:</strong> lentes de gafas, cámaras de celulares, microscopios, proyectores y telescopios refractores utilizan la refracción para desviar y enfocar la luz.</div>
+    </section>
+  </main>
+
+  <footer>Proyecto educativo de Física · Reflexión y Refracción · Grado 11°</footer>
+  <script src="script.js"></script>
+</body>
+</html>
